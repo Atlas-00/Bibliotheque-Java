@@ -15,4 +15,8 @@ public class Membre {
     public String getmNomUtilisateur() {
         return mNomUtilisateur;
     }
+
+    public String getmPassword() {
+        return mPassword;
+    }
 }

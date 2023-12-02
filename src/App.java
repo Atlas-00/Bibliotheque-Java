@@ -7,25 +7,35 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Bienvenue dans la bibliotheque de Atlas que voulez vous faire !");
-        System.out.println("--------------------------------\n");
+        System.out.println("--------------------------------");
+        boolean quitterBoucle = false;
 
-        System.out.println("1. Créer un compte :");
-        System.out.println("2. Se conecter :");
-        System.out.println("3. Emprunter un livre :");
-        System.out.println("4. Rendre un livre :");
-        System.out.println("5. Voire la iste des livre :");
+        do {
+            System.out.println("\n1. Créer un compte :");
+            System.out.println("2. Se conecter :");
+            System.out.println("3. Quitter : ");
 
-        System.out.print("\nEntrez  votre choix : ");
-        int choix = scanner.nextInt();
+            System.out.print("\nEntrez  votre choix : ");
+            int choix = scanner.nextInt();
 
-        switch (choix) {
-            case 1:
-                bibliotheque.ajouterMembre();
-                break;
+            switch (choix) {
+                case 1:
+                    bibliotheque.ajouterMembre();
+                    break;
 
-            default:
-                System.out.println("Votre choix est invalide !!!");
-                break;
-        }
+                case 2:
+                    bibliotheque.connecterUnMenbre();
+                    break;
+
+                case 3:
+                    quitterBoucle = true;
+                    System.out.println("Vous quitter le programme");
+                    break;
+
+                default:
+                    System.out.println("Votre choix est invalide !!!");
+                    break;
+            }
+        } while (!quitterBoucle);
     }
 }
