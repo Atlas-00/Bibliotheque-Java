@@ -1,4 +1,5 @@
 import fr.atlas.*;
+
 import java.util.Scanner;
 
 public class App {
