@@ -46,7 +46,7 @@ public class Bibliotheque implements Empruntable {
     }
 
     public void connecterUnMenbre() {
-        System.out.print("\nEntrez votre d'utilisateur : ");
+        System.out.print("\nEntrez votre nom d'utilisateur : ");
         String nomUtilisateur = scanner.nextLine();
 
         for (Membre membre : _membres) {

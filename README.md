@@ -45,9 +45,49 @@ Ce projet est une application de gestion de bibliothèque développée en Java e
 4. **Affichage des Informations :**
    - La bibliothèque peut afficher les livres disponibles, les membres, les transactions récentes, etc.
 
-## Extensions Possibles
+## Mon Problèmme
 
-- Ajoutez des fonctionnalités telles que la gestion des amendes, la recherche avancée, la génération de rapports, etc.
+1. **L'interface**
+
+   - L'interface Empruntable j'arriva pas à implimenter l'interface dans la class `Biliotheque` ce qui cause une erreur et ça me soule
+
+   ```PowerShell
+    Entrez le nom du livre à emprunter : Exception in thread "main" java.lang.UnsupportedOperationException: Méthode 'emprunter' non implémentée
+     at fr.atlas.Bibliotheque.emprunter(Bibliotheque.java:103)
+     at fr.atlas.Bibliotheque.connecterUnMenbre(Bibliotheque.java:80)
+     at App.main(App.java:28)
+   ```
+
+2. **Problème de code / mauvaise gestions des types de données**
+
+   - Après avoir créer un livre des que je décide de créer un compte ça saute un bout de mon code ou il faut ajouter le nom de l'utilisateur
+
+   ```PowerShell
+   Bienvenue dans la bibliotheque de Atlas que voulez vous faire !
+
+      1. Créer un compte :
+      2. Se conecter :
+      3. Ajouter un livre :
+      4. Quitter :
+
+      Entrez votre choix : 3
+
+      Entrez le titre du livre : test1
+      Entrez le nom de l'auteur : test
+      Entrez l'état du livre : true
+      Entrez l'année de publication : 2023
+      Votre livre à été ajouté!
+
+      1. Créer un compte :
+      2. Se conecter :
+      3. Ajouter un livre :
+      4. Quitter :
+
+      Entrez votre choix : 1
+
+      Entrez votre nom d'utilisateur : Entrez votre email :
+   ```
+
 
 ## Auteur
 
