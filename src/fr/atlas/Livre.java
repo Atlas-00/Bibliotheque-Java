@@ -22,13 +22,13 @@ public class Livre{
         return mEtat;
     }
 
-    public boolean setEtat(boolean nouvelleEtat) {
-        return mEtat = nouvelleEtat;
+    public void setEtat(boolean nouvelleEtat) {
+        this.mEtat = nouvelleEtat;
     }
 
     @Override
     public String toString() {
-        return "Nom : " + mTitre + ", Auteur : " + mAuteur + (mEtat ? "Emprunter" : "Disponible")
+        return "\nNom : " + mTitre + ", Auteur : " + mAuteur + ", Etat" + (mEtat ? " 'emprunter'" : " 'disponible'")
                 + ", Année de publications : " + mAnnee;
     }
 }
