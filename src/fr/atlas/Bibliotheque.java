@@ -36,7 +36,7 @@ public class Bibliotheque implements Empruntable {
         String auteur = scanner.nextLine();
 
         System.out.print("Entrez l'état du livre : ");
-        boolean etat = scanner.nextBoolean();
+        boolean etat = Boolean.parseBoolean(scanner.next());
 
         System.out.print("Entrez l'année de publication : ");
         int annee = scanner.nextInt();

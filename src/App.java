@@ -17,7 +17,7 @@ public class App {
             System.out.println("4. Quitter : ");
 
             System.out.print("\nEntrez  votre choix : ");
-            int choix = scanner.nextInt();
+            int choix = Integer.parseInt(scanner.next());
 
             switch (choix) {
                 case 1:
