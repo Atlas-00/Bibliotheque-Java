@@ -3,17 +3,19 @@ package fr.atlas;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Bibliotheque {
-
-    public Scanner scanner;
+public class Bibliotheque implements Empruntable {
     ArrayList<Membre> _membres;
+    ArrayList<Livre> _livres;
+    private Membre _membreActuel;
 
     public Bibliotheque() {
-        this.scanner = new Scanner(System.in);
         this._membres = new ArrayList<Membre>();
+        this._livres = new ArrayList<Livre>();
     }
 
     public void ajouterMembre() {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.print("\nEntrez votre nom d'utilisateur : ");
         String nomUtilisateur = scanner.nextLine();
 
@@ -25,10 +27,31 @@ public class Bibliotheque {
 
         _membres.add(new Membre(nomUtilisateur, email, password));
         System.out.println("Votre compte à été créer !");
+
+    }
+
+    public void ajouterUnLivre() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nEntrez le titre du livre : ");
+        String titre = scanner.next();
+
+        System.out.print("Entrez le nom de l'auteur : ");
+        String auteur = scanner.next();
+
+        System.out.print("Entrez l'état du livre : ");
+        boolean etat = Boolean.parseBoolean(scanner.next());
+
+        System.out.print("Entrez l'année de publication : ");
+        int annee = scanner.nextInt();
+
+        _livres.add(new Livre(titre, auteur, etat, annee));
+        System.out.println("Votre livre à été ajouté!");
     }
 
     public void connecterUnMenbre() {
-        System.out.print("\nEntrez votre d'utilisateur : ");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("\nEntrez votre nom d'utilisateur : ");
         String nomUtilisateur = scanner.nextLine();
 
         for (Membre membre : _membres) {
@@ -37,8 +60,9 @@ public class Bibliotheque {
                 String password = scanner.nextLine();
 
                 if (membre.getmPassword().equals(password)) {
+                    _membreActuel = membre; // Mette à jour _membreActuel
                     System.out.println("\nVous êtes connecté!");
-                    System.out.println("Bienvenue " + membre.getmNomUtilisateur());
+                    System.out.println("Bienvenue " + _membreActuel.getmNomUtilisateur());
                 } else {
                     System.out.println("Votre mot de passe est invalide!");
                 }
@@ -52,19 +76,57 @@ public class Bibliotheque {
 
         System.out.println("\n1. Emprunter un livre :");
         System.out.println("2. Rendre un livre :");
-        System.out.println("3. Voire la iste des livre :");
+        System.out.println("3. Voire mes livre enprunter :");
 
-        System.out.print("Entrez votre choix : ");
+        System.out.print("\nEntrez votre choix : ");
         int choix = scanner.nextInt();
 
         switch (choix) {
             case 1:
-                System.out.println(123);
+                emprunter();
+                break;
+
+            case 2:
+                retourner();
                 break;
 
             default:
                 System.out.println("Votre choix est invalide : ");
                 break;
         }
+    }
+
+    @Override
+    public void emprunter() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("\nEntrez le nom du livre à emprunter : ");
+        String nomLivre = scanner.nextLine();
+
+        boolean livreTrouve = false;
+
+        for (Livre livre : _livres) {
+            if (livre.getNomLivre().contains(nomLivre) && livre.isEtat()) {
+                livre.setEtat(false);
+                System.out.println("Le livre '" + livre.getNomLivre() + "' a été emprunté par "
+                        + _membreActuel.getmNomUtilisateur());
+                livreTrouve = true;
+                break; // Sort de la boucle une fois que le livre a été emprunté
+            }
+        }
+
+        if (!livreTrouve) {
+            System.out.println("Ce livre n'existe pas ou n'est pas disponible!");
+        }
+    }
+
+    @Override
+    public void retourner() {
+        throw new UnsupportedOperationException("Méthode 'retourner' non implémentée");
+    }
+
+    @Override
+    public boolean estEmprunte() {
+        throw new UnsupportedOperationException("Méthode 'estEmprunter' non implémentée");
     }
 }
