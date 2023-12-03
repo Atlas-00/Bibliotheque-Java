@@ -13,7 +13,8 @@ public class App {
         do {
             System.out.println("\n1. Créer un compte :");
             System.out.println("2. Se conecter :");
-            System.out.println("3. Quitter : ");
+            System.out.println("3. Ajouter un livre : ");
+            System.out.println("4. Quitter : ");
 
             System.out.print("\nEntrez  votre choix : ");
             int choix = scanner.nextInt();
@@ -28,6 +29,10 @@ public class App {
                     break;
 
                 case 3:
+                    bibliotheque.ajouterUnLivre();
+                    break;
+
+                case 4:
                     quitterBoucle = true;
                     System.out.println("Vous quitter le programme");
                     break;

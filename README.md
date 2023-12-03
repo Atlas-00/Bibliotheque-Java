@@ -1,18 +1,56 @@
-## Getting Started
+# Projet de Gestion de Bibliothèque en Java
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Description
 
-## Folder Structure
+Ce projet est une application de gestion de bibliothèque développée en Java en utilisant les concepts de la programmation orientée objet (OOP), notamment les interfaces, l'héritage, les classes abstraites et les packages.
 
-The workspace contains two folders by default, where:
+## Fonctionnalités
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+1. **Livres :**
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+   - La classe `Livre` représente un livre avec des détails tels que le titre, l'auteur, l'année de publication, etc.
+   - La classe utilise l'interface `Empruntable` pour marquer les livres qui peuvent être empruntés.
+   - La classe abstraite `MaterielBibliothecaire` gère les propriétés communes des objets dans la bibliothèque.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+2. **Membres :**
 
-## Dependency Management
+   - La classe `Membre` représente les membres de la bibliothèque.
+   - L'interface `Emprunteur` est utilisée pour marquer les membres qui peuvent emprunter des livres.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+3. **Transactions :**
+
+   - La classe `Transaction` représente les emprunts et les retours de livres.
+   - Les méthodes de la classe gèrent les détails de chaque transaction.
+
+4. **Gestion de la Bibliothèque :**
+   - La classe `Bibliotheque` gère la liste des livres disponibles, des membres et des transactions.
+   - Les classes sont organisées en packages logiques tels que `bibliotheque.livre`, `bibliotheque.membre`, `bibliotheque.transaction`.
+
+## Utilisation
+
+1. **Initialisation :**
+
+   - Créez une instance de la classe `Bibliotheque`.
+   - Ajoutez des livres à la bibliothèque et enregistrez des membres.
+
+2. **Emprunt et Retour :**
+
+   - Les membres peuvent se connecter, rechercher des livres et emprunter ceux disponibles.
+   - Les retours de livres mettent à jour la disponibilité dans la bibliothèque.
+
+3. **Transactions :**
+
+   - Chaque transaction est enregistrée avec des détails sur le livre, le membre et la date.
+
+4. **Affichage des Informations :**
+   - La bibliothèque peut afficher les livres disponibles, les membres, les transactions récentes, etc.
+
+## Extensions Possibles
+
+- Ajoutez des fonctionnalités telles que la gestion des amendes, la recherche avancée, la génération de rapports, etc.
+
+## Auteur
+
+[Atlas-00]
+
+---

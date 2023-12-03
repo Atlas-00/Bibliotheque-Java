@@ -1,6 +1,6 @@
 package fr.atlas;
 
-public class Livre {
+public class Livre{
 
     public String mTitre;
     public String mAuteur;
@@ -12,6 +12,10 @@ public class Livre {
         this.mAuteur = auteur;
         this.mEtat = etat;
         this.mAnnee = annee;
+    }
+
+    public String getNomLivre() {
+        return mTitre;
     }
 
     @Override
