@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Membre implements Emprunteur {
 
-    private String mNomUtilisateur;
+    private final String mNomUtilisateur;
+    private final String mPassword;
+    private final List<Livre> livresEmpruntes; // Ajout d'une liste pour suivre les livres empruntés
     private String mEmail;
-    private String mPassword;
-    private List<Livre> livresEmpruntes; // Ajout d'une liste pour suivre les livres empruntés
 
     public Membre(String nomUtilisateur, String email, String password) {
         this.mNomUtilisateur = nomUtilisateur;

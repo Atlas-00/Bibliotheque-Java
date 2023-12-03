@@ -3,17 +3,17 @@ import fr.atlas.*;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Bibliotheque bibliotheque = new Bibliotheque();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Bienvenue dans la bibliotheque de Atlas que voulez vous faire !");
+        System.out.println("Bienvenue dans la bibliothèque de Atlas que voulez vous faire !");
         System.out.println("--------------------------------");
         boolean quitterBoucle = false;
 
         do {
             System.out.println("\n1. Créer un compte :");
-            System.out.println("2. Se conecter :");
+            System.out.println("2. Se connect :");
             System.out.println("3. Ajouter un livre : ");
             System.out.println("4. Quitter : ");
 
