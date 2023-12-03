@@ -167,3 +167,4 @@ public class Bibliotheque implements Empruntable, Affichable {
         throw new UnsupportedOperationException("Méthode 'retourner' non implémentée");
     }
 }
+
