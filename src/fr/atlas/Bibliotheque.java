@@ -4,17 +4,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Bibliotheque implements Empruntable {
-    public Scanner scanner;
     ArrayList<Membre> _membres;
     ArrayList<Livre> _livres;
+    private Membre _membreActuel;
 
     public Bibliotheque() {
-        this.scanner = new Scanner(System.in);
         this._membres = new ArrayList<Membre>();
         this._livres = new ArrayList<Livre>();
     }
 
     public void ajouterMembre() {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.print("\nEntrez votre nom d'utilisateur : ");
         String nomUtilisateur = scanner.nextLine();
 
@@ -26,14 +27,16 @@ public class Bibliotheque implements Empruntable {
 
         _membres.add(new Membre(nomUtilisateur, email, password));
         System.out.println("Votre compte à été créer !");
+
     }
 
     public void ajouterUnLivre() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("\nEntrez le titre du livre : ");
-        String titre = scanner.nextLine();
+        String titre = scanner.next();
 
         System.out.print("Entrez le nom de l'auteur : ");
-        String auteur = scanner.nextLine();
+        String auteur = scanner.next();
 
         System.out.print("Entrez l'état du livre : ");
         boolean etat = Boolean.parseBoolean(scanner.next());
@@ -46,6 +49,8 @@ public class Bibliotheque implements Empruntable {
     }
 
     public void connecterUnMenbre() {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.print("\nEntrez votre nom d'utilisateur : ");
         String nomUtilisateur = scanner.nextLine();
 
@@ -55,8 +60,9 @@ public class Bibliotheque implements Empruntable {
                 String password = scanner.nextLine();
 
                 if (membre.getmPassword().equals(password)) {
+                    _membreActuel = membre; // Mette à jour _membreActuel
                     System.out.println("\nVous êtes connecté!");
-                    System.out.println("Bienvenue " + membre.getmNomUtilisateur());
+                    System.out.println("Bienvenue " + _membreActuel.getmNomUtilisateur());
                 } else {
                     System.out.println("Votre mot de passe est invalide!");
                 }
@@ -70,9 +76,9 @@ public class Bibliotheque implements Empruntable {
 
         System.out.println("\n1. Emprunter un livre :");
         System.out.println("2. Rendre un livre :");
-        System.out.println("3. Voire la iste des livre :");
+        System.out.println("3. Voire mes livre enprunter :");
 
-        System.out.print("Entrez votre choix : ");
+        System.out.print("\nEntrez votre choix : ");
         int choix = scanner.nextInt();
 
         switch (choix) {
@@ -92,15 +98,26 @@ public class Bibliotheque implements Empruntable {
 
     @Override
     public void emprunter() {
-        System.out.print("Entrez le nom du livre à emprunter : ");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("\nEntrez le nom du livre à emprunter : ");
         String nomLivre = scanner.nextLine();
 
+        boolean livreTrouve = false;
+
         for (Livre livre : _livres) {
-            if (livre.getNomLivre().contains(nomLivre)) {
-                System.out.println("oui");
+            if (livre.getNomLivre().contains(nomLivre) && livre.isEtat()) {
+                livre.setEtat(false);
+                System.out.println("Le livre '" + livre.getNomLivre() + "' a été emprunté par "
+                        + _membreActuel.getmNomUtilisateur());
+                livreTrouve = true;
+                break; // Sort de la boucle une fois que le livre a été emprunté
             }
         }
-        throw new UnsupportedOperationException("Méthode 'emprunter' non implémentée");
+
+        if (!livreTrouve) {
+            System.out.println("Ce livre n'existe pas ou n'est pas disponible!");
+        }
     }
 
     @Override

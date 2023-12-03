@@ -18,6 +18,14 @@ public class Livre{
         return mTitre;
     }
 
+    public boolean isEtat() {
+        return mEtat;
+    }
+
+    public boolean setEtat(boolean nouvelleEtat) {
+        return mEtat = nouvelleEtat;
+    }
+
     @Override
     public String toString() {
         return "Nom : " + mTitre + ", Auteur : " + mAuteur + (mEtat ? "Emprunter" : "Disponible")
