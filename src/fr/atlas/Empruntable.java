@@ -9,10 +9,5 @@ public interface Empruntable {
     void retourner();
 
     // Vérifier si le livre est actuellement emprunté
-<<<<<<< HEAD
-    boolean estEmprunte();
-}
-=======
     // boolean estEmprunte();
 }
->>>>>>> dev

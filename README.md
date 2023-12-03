@@ -45,15 +45,9 @@ Ce projet est une application de gestion de bibliothèque développée en Java e
 4. **Affichage des Informations :**
    - La bibliothèque peut afficher les livres disponibles, les membres, les transactions récentes, etc.
 
-<<<<<<< HEAD
-## Auteur
-
-### [Atlas]
-=======
 
 ## Auteur
 
 [Atlas-00]
 
 ---
->>>>>>> dev

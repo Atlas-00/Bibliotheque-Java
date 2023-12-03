@@ -22,13 +22,8 @@ public class Livre{
         return mEtat;
     }
 
-<<<<<<< HEAD
-    public boolean setEtat(boolean nouvelleEtat) {
-        return mEtat = nouvelleEtat;
-=======
     public void setEtat(boolean nouvelleEtat) {
         this.mEtat = nouvelleEtat;
->>>>>>> dev
     }
 
     @Override
