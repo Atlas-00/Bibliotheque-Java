@@ -2,7 +2,7 @@ import fr.atlas.*;
 
 import java.util.Scanner;
 
-public class App {
+public class Main {
     public static void main(String[] args) throws Exception {
         Bibliotheque bibliotheque = new Bibliotheque();
         Scanner scanner = new Scanner(System.in);
