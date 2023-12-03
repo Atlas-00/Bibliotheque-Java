@@ -2,7 +2,7 @@
 
 ## Description
 
-Ce projet est une application de gestion de bibliothèque développée en Java en utilisant les concepts de la programmation orientée objet (OOP), notamment les interfaces, l'héritage, les classes abstraites et les packages.
+Ce projet est une application de gestion de bibliothèque développée en Java en utilisant les concepts de la programmation orientée objet (OOP), notamment les interfaces, l'héritage, les classes abstraites et les packages. 
 
 ## Fonctionnalités
 

@@ -1,6 +1,6 @@
 package fr.atlas;
 
-public class Livre{
+public class Livre {
 
     public String mTitre;
     public String mAuteur;
